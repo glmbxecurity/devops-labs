@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"lxc_docker_full","Source":"./modules/lxc_basic","Dir":"modules/lxc_basic"},{"Key":"lxc_wireguard","Source":"./modules/lxc_basic","Dir":"modules/lxc_basic"}]}
