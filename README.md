@@ -9,8 +9,11 @@ Este repositorio centraliza una serie de laboratorios diseñados para transicion
 ### 🔹 [Lab 1: Infraestructura como Código con Terraform y Proxmox](./lab-1/LAB_GUIDE.md)
 En este primer laboratorio, sentamos las bases de la automatización desplegando infraestructura de forma declarativa sobre un entorno Proxmox.
 
-*   **Conceptos:** Uso de *Providers*, creación de *Módulos* reutilizables y gestión de *State*.
-*   **Objetivo:** Desplegar contenedores LXC (básicos y avanzados con Docker/Nesting) tratando los servidores como "ganado" (Cattle) en lugar de "mascotas" (Pets).
+### 🔹 [Lab 2: Automatización, Persistencia y Configuración con Ansible](./lab-2/LAB_GUIDE.md)
+Continuamos la automatización configurando el almacenamiento persistente mapeado desde Proxmox y preparando los contenedores para su gestión avanzada con Ansible.
+
+*   **Conceptos:** Persistencia de datos con *Bind Mounts*, segmentación de red con *VMBR* y preparación para *Ansible*.
+*   **Objetivo:** Configurar contenedores LXC con almacenamiento dedicado en `/data` para despliegues de Docker persistentes.
 
 ---
 

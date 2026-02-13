@@ -1,3 +1,5 @@
+![Portada](./devops-labs-1.png)
+
 # 🚀 Desplegando una infraestructura con Terraform y Proxmox
 
 ## 1. Introducción: El Problema del "SysAdmin Artesano"
