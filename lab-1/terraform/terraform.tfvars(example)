@@ -1,0 +1,25 @@
+# --- GLOBALES ---
+proxmox_host     = "your-proxmox-host"
+template_name    = "local:vztmpl/alpine-xxx.tar.xz"
+global_gateway   = "192.168.1.1"
+ssh_key_public   = "ssh-rsa YOUR_PUBLIC_SSH_KEY_HERE"
+pm_api_url  = "https://YOUR_PROXMOX_IP:8006/api2/json"
+pm_user     = "root@pam" 
+pm_password = "YOUR_PASSWORD_HERE"
+
+# --- DATOS DEL LXC BÁSICO ---
+basic_id   = "900"
+basic_ip   = "192.168.1.50/24"
+
+# --- DATOS DEL LXC AVANZADO (DOCKER) ---
+adv_id     = "901"
+adv_ip     = "192.168.1.51/24"
+adv_cores  =  2
+adv_ram    = "2048"
+adv_bridge = "vmbr1001"
+# Definimos el Bind Mount de forma individual
+adv_mount_key     = "0"
+adv_mount_slot    = 0
+adv_mount_storage = "/path/to/host/storage"
+adv_mount_mp      = "/var/www/html/"
+adv_mount_size    = "0G"
