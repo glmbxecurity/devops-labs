@@ -6,7 +6,7 @@ Este repositorio centraliza una serie de laboratorios diseñados para transicion
 
 ## 🚀 Laboratorios Disponibles
 
-### 🔹 [Lab 1: Infraestructura como Código con Terraform y Proxmox](./lab-1/terraform/LAB_GUIDE.md)
+### 🔹 [Lab 1: Infraestructura como Código con Terraform y Proxmox](./lab-1/LAB_GUIDE.md)
 En este primer laboratorio, sentamos las bases de la automatización desplegando infraestructura de forma declarativa sobre un entorno Proxmox.
 
 *   **Conceptos:** Uso de *Providers*, creación de *Módulos* reutilizables y gestión de *State*.
