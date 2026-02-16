@@ -117,7 +117,7 @@ resource "proxmox_lxc" "generic" {
       storage = mountpoint.value["storage"] # Ruta en el host Proxmox
       mp      = mountpoint.value["mp"]      # Ruta destino en el LXC
       size    = mountpoint.value["size"]    # "0G" para Bind Mounts
-      volume  = mountpoint.value["storage"] # Volumen mapeado
+      volume  = mountpoint.value["storage"] # Necesario para Bind Mounts
     }
   }
 }
@@ -137,10 +137,17 @@ variable "ostemplate" {}
 
 variable "cores"  { default = 1 }
 variable "memory" { default = 512 }
+variable "disk_size" { default = "1G" }
+variable "gateway" { default = "192.168.1.1" }
 variable "vmnet"  { default = "vmbr0" }
-variable "docker_enabled" { default = false }
+
+variable "docker_enabled" { 
+  description = "Activa nesting y keyctl"
+  default = false 
+}
 
 variable "mountpoints" {
+  description = "Lista de discos/bind mounts"
   type = list(object({
     key     = string
     slot    = number
@@ -164,7 +171,7 @@ module "lxc_wireguard" {
   hostname    = "srv-basico"
   ip_address  = var.basic_ip
   ostemplate  = var.template_name
-  password    = "passTemporal123"
+  password    = "passwordTemporal"
   ssh_key     = var.ssh_key_public
   gateway     = var.global_gateway
 }
@@ -177,15 +184,18 @@ module "lxc_docker_full" {
   hostname       = "srv-docker-prod"
   ip_address     = var.adv_ip
   ostemplate     = var.template_name
-  password       = "passTemporal123"
+  password       = "passwordTemporal"
   ssh_key        = var.ssh_key_public
   gateway        = var.global_gateway
   vmnet          = var.adv_bridge
   cores          = var.adv_cores
   memory         = var.adv_ram
+  disk_size      = "10G"
   docker_enabled = true 
   
-  # Construimos la lista de discos a partir de variables planas para que sea visual
+  # El Puente. Aunque el módulo espera una lista, nosotros 
+  # la construimos aquí usando las variables planas del .tfvars.
+  # Así el usuario final no tiene que pelear con sintaxis compleja.
   mountpoints = [
     {
       key     = var.adv_mount_key
@@ -199,7 +209,7 @@ module "lxc_docker_full" {
 ```
 
 ### Paso F: Los Datos (`terraform.tfvars`)
-**Explica:** ¡El centro de control! Hemos aplanado las variables para que no tengas que pelearte con arrays de objetos. Es limpio y fácil de leer.
+**Explica:** ¡El centro de control! Hemos "aplanado" las variables complejas. El módulo es capaz de manejar múltiples discos (vía listas), pero para este lab le pasamos los datos de uno solo de forma sencilla. Es limpio y fácil de leer.
 
 ```hcl
 # --- GLOBALES ---
@@ -215,12 +225,16 @@ adv_bridge       = "vmbr1001"
 # --- LXC DOCKER (Avanzado) ---
 adv_id           = "901"
 adv_ip           = "192.168.1.51/24"
-adv_ram          = 2048
+adv_ram          = "2048"
 adv_cores        = 2
 
 # --- BIND MOUNT (Persistencia) ---
+# Aquí es donde ocurre el puente: usamos variables planas para simplificar el .tfvars
+adv_mount_key     = "0"
+adv_mount_slot    = 0
 adv_mount_storage = "/raid1/storage/nginx_data" # Carpeta en el Proxmox
 adv_mount_mp      = "/var/www/html"             # Carpeta en el LXC
+adv_mount_size    = "0G"                        # 0G = Bind Mount
 ```
 
 ---
