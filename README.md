@@ -9,6 +9,9 @@ Este repositorio centraliza una serie de laboratorios diseñados para transicion
 ### 🔹 [Lab 1: Infraestructura como Código con Terraform y Proxmox](./lab-1/LAB_GUIDE.md)
 En este primer laboratorio, sentamos las bases de la automatización desplegando infraestructura de forma declarativa sobre un entorno Proxmox.
 
+### 🔹 [Lab 1.2: Desplegando Entornos de Producción y Pre-producción en Proxmox con Terraform](./lab-1.2/LAB_GUIDE.md)
+En este laboratorio, desplegamos infraestructura de forma declarativa sobre un entorno Proxmox, creando entornos de Producción y Pre-producción.
+
 ### 🔹 [Lab 2: Automatización, Persistencia y Configuración con Ansible](./lab-2/LAB_GUIDE.md)
 Continuamos la automatización configurando el almacenamiento persistente mapeado desde Proxmox y preparando los contenedores para su gestión avanzada con Ansible.
 

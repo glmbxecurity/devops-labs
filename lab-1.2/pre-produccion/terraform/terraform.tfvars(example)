@@ -1,0 +1,71 @@
+# --- GLOBALES ---
+proxmox_host     = "your-proxmox-host"
+template_name    = "local:vztmpl/alpine-xxx.tar.xz"
+global_gateway   = "192.168.1.1"
+ssh_key_public   = "ssh-rsa YOUR_PUBLIC_SSH_KEY_HERE"
+pm_api_url  = "https://YOUR_PROXMOX_IP:8006/api2/json"
+pm_user     = "root@pam" 
+pm_password = "YOUR_PASSWORD_HERE"
+
+# Variables de red 
+bridge_1001 = "vmbr1001"
+bridge_1002 = "vmbr1002"
+bridge_1003 = "vmbr1003"
+gateway_1001 = "100.21.1.1"
+gateway_1002 = "100.21.2.1"
+gateway_1003 = "100.21.3.1"
+
+# --- VARIABLES srv_support_01 ---
+srv_support_01_id                   = "1000"
+srv_support_01_ip                   = "100.21.1.10/24"
+srv_support_01_password             = "YOUR_SECURE_PASSWORD"
+srv_support_01_cores                = 4
+srv_support_01_ram                  = "8192"
+srv_support_01_disk_size            = "40G"
+srv_support_01_storage_location     = "local-lvm"
+srv_support_01_mount_storage        = "/path/to/host/mount"
+srv_support_01_mount_mp             = "/data"
+
+# --- VARIABLES srv_servicios_varios_01 ---
+srv_servicios_varios_01_id                  = "2000"
+srv_servicios_varios_01_ip                   = "100.21.2.10/24"
+srv_servicios_varios_01_password             = "YOUR_SECURE_PASSWORD"
+srv_servicios_varios_01_cores                = 2
+srv_servicios_varios_01_ram                  = "2048"
+srv_servicios_varios_01_disk_size            = "20G"
+srv_servicios_varios_01_storage_location     = "local-lvm"
+srv_servicios_varios_01_mount_storage        = "/path/to/host/mount"
+srv_servicios_varios_01_mount_mp             = "/data"
+
+# --- VARIABLES srv_devops_01 ---
+srv_devops_01_id                  = "2001"
+srv_devops_01_ip                   = "100.21.2.11/24"
+srv_devops_01_password             = "YOUR_SECURE_PASSWORD"
+srv_devops_01_cores                = 4
+srv_devops_01_ram                  = "8192"
+srv_devops_01_disk_size            = "40G"
+srv_devops_01_storage_location     = "local-lvm"
+srv_devops_01_mount_storage        = "/path/to/host/mount"
+srv_devops_01_mount_mp             = "/data"
+
+# --- VARIABLES srv_vpn_01 ---
+srv_vpn_01_id                  = "2002"
+srv_vpn_01_ip                   = "100.21.2.12/24"
+srv_vpn_01_password             = "YOUR_SECURE_PASSWORD"
+srv_vpn_01_cores                = 1
+srv_vpn_01_ram                  = "512"
+srv_vpn_01_disk_size            = "2G"
+srv_vpn_01_storage_location     = "local-lvm"
+srv_vpn_01_mount_storage        = "/path/to/host/mount"
+srv_vpn_01_mount_mp             = "/data"
+
+# --- VARIABLES srv_ia_01 ---
+srv_ia_01_id                  = "3000"
+srv_ia_01_ip                   = "100.21.3.10/24"
+srv_ia_01_password             = "YOUR_SECURE_PASSWORD"
+srv_ia_01_cores                = 2
+srv_ia_01_ram                  = "4096"
+srv_ia_01_disk_size            = "20G"
+srv_ia_01_storage_location     = "local-lvm"
+srv_ia_01_mount_storage        = "/path/to/host/mount"
+srv_ia_01_mount_mp             = "/data"
