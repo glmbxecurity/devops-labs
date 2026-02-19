@@ -1,0 +1,78 @@
+# --- GLOBALES ---
+proxmox_host   = "proxmox"
+template_name  = "local:vztmpl/alpine-3.23-default_20260116_amd64.tar.xz"
+ssh_key_public = "ssh-rsa...." #EDITAR CON TU KEY
+
+# --- CONEXIÓN PROXMOX ---
+pm_api_url  = "https://192.168.1.100:8006/api2/json"
+pm_user     = "root@pam"
+pm_password = "TUPASS_SECRETA"
+
+# --- RED: BRIDGES (PROD) ---
+bridge_support = "vmbr1001"
+bridge_infra   = "vmbr1002"
+bridge_ia      = "vmbr1003"
+bridge_soc     = "vmbr1004"
+bridge_labs    = "vmbr1010"
+
+# --- RED: GATEWAYS (PROD) ---
+gateway_support = "100.21.1.1"
+gateway_infra   = "100.21.2.1"
+gateway_ia      = "100.21.3.1"
+gateway_soc     = "100.21.4.1"
+gateway_labs    = "100.21.10.1"
+
+# --- SERVICIOS: SOPORTE ---
+srv_support_01_id       = "1100"
+srv_support_01_ip       = "100.21.1.10/24"
+srv_support_01_hostname = "srv-support-01"
+srv_support_01_cores    = 2
+srv_support_01_ram      = 2048
+srv_support_01_password = "REDACTED"
+srv_support_01_storage_location = "raid1"
+srv_support_01_disk_size = "20G"
+srv_support_01_mount_storage = "/raid1/storage/infra_data/21solutions/produccion/support/"
+
+# --- SERVICIOS: VARIOS ---
+srv_servicios_varios_01_id       = "1200"
+srv_servicios_varios_01_ip       = "100.21.2.10/24"
+srv_servicios_varios_01_hostname = "srv-servicios-varios-01"
+srv_servicios_varios_01_cores    = 2
+srv_servicios_varios_01_ram      = 2048
+srv_servicios_varios_01_password = "REDACTED"
+srv_servicios_varios_01_storage_location = "raid1"
+srv_servicios_varios_01_disk_size = "20G"
+srv_servicios_varios_01_mount_storage = "/raid1/storage/infra_data/21solutions/produccion/infra/varios/"
+
+# --- SERVICIOS: DEVOPS ---
+srv_devops_01_id       = "1201"
+srv_devops_01_ip       = "100.21.2.11/24"
+srv_devops_01_hostname = "srv-devops-01"
+srv_devops_01_cores    = 4
+srv_devops_01_ram      = 8192
+srv_devops_01_password = "REDACTED"
+srv_devops_01_storage_location = "raid1"
+srv_devops_01_disk_size = "40G"
+srv_devops_01_mount_storage = "/raid1/storage/infra_data/21solutions/produccion/infra/devops/"
+
+# --- SERVICIOS: VPN ---
+srv_vpn_01_id       = "1202"
+srv_vpn_01_ip       = "100.21.2.12/24"
+srv_vpn_01_hostname = "srv-vpn-01"
+srv_vpn_01_cores    = 1
+srv_vpn_01_ram      = 512
+srv_vpn_01_password = "REDACTED"
+srv_vpn_01_storage_location = "raid1"
+srv_vpn_01_disk_size = "2G"
+srv_vpn_01_mount_storage = "/raid1/storage/infra_data/21solutions/produccion/infra/vpn/"
+
+# --- SERVICIOS: IA ---
+srv_ia_01_id       = "1300"
+srv_ia_01_ip       = "100.21.3.10/24"
+srv_ia_01_hostname = "srv-ia-01"
+srv_ia_01_cores    = 2
+srv_ia_01_ram      = 4096
+srv_ia_01_password = "REDACTED"
+srv_ia_01_storage_location = "raid1"
+srv_ia_01_disk_size = "20G"
+srv_ia_01_mount_storage = "/raid1/storage/infra_data/21solutions/produccion/ia/"
